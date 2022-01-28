@@ -1,10 +1,19 @@
-import { isFriday, isMonday, isWednesday } from "date-fns";
-import { log } from "./logger.js";
-import { currentDate } from "./utils.js";
+import "./style.css";
+import { getMovieInfo, flagCurrency } from "./first.js";
+import { runtimeAndPopulation, runtimesArr, populationArr } from "./second.js";
 
-log("my love");
-currentDate();
+const movieSearchBnt = document.getElementById("movie-search-btn");
+const sumSearchBtn = document.getElementById("population-search-btn");
 
-console.log("is friday? - ", isFriday(new Date()));
-console.log("is monday? - ", isMonday(new Date()));
-console.log("is wednesday? - ", isWednesday(new Date()));
+movieSearchBnt.addEventListener("click", (event) => {
+  event.preventDefault();
+  getMovieInfo();
+  flagCurrency.innerHTML = "";
+});
+
+sumSearchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  runtimeAndPopulation();
+  runtimesArr = [];
+  populationArr = [];
+});
