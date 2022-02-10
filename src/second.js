@@ -32,14 +32,9 @@ async function runtimeAndPopulation() {
     !runtimeSum
       ? (showRuntime.innerHTML = "OOPS, Wrong Title")
       : (showRuntime.innerHTML = `${runtimeSum} minutes`);
-    // countues result
-    const splitCountries = countriesArr + "";
-    const uniqueCountries = [...new Set(splitCountries.split(","))];
-    const filterUnique = uniqueCountries.filter((elem) => {
-      if (elem.length != 0) {
-        return elem;
-      }
-    });
+    // countries result
+    const uniqueCountries = [...new Set((countriesArr + "").split(","))];
+    const filterUnique = uniqueCountries.filter((elem) => elem.length != 0);
     getPopulation(filterUnique);
   } catch (error) {
     console.log(error);
