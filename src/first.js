@@ -35,14 +35,14 @@ async function getMovieInfo() {
 }
 
 function actorsNames(str) {
-  const fullArr = str.split(" ");
+  const fullArr = str.split(',');
   let nameArr = [];
   for (let i = 0; i < fullArr.length; i++) {
-    if (i % 2 == 0) {
-      nameArr.push(fullArr[i]);
-    }
+    const arrayFromNames = fullArr[i].trim().split(' ');
+    nameArr.push(arrayFromNames.shift());
   }
-  return nameArr.toString();
+  console.log(fullArr);
+  return nameArr.join(', ');
 }
 
 async function getFlagAndCurrency(arr) {
